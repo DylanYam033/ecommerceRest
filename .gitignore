@@ -1,6 +1,16 @@
-# Ignorar archivos generados por Python
+# Archivos de caché de Python
 *.pyc
-__pycache__
+*.pyo
+__pycache__/
+
+# Archivos de caché de pip
+*.pyc
+*.pyo
+__pycache__/
+
+# Entornos virtuales
+venv/
+
 
 # Ignorar el archivo de configuración local de Django
 *.sqlite3
