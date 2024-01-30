@@ -32,13 +32,16 @@ def userCreate_api_view(request):
 @api_view(['GET','PUT','DELETE'])
 def getUser_api_view(request, id):
 
+    #queryset de user(objeto user)
     user = get_object_or_404(User, id=id)
 
     if user:
+        #detail
         if request.method == 'GET':
             userDetail_serializer = UserSerializer(user)
             return Response(userDetail_serializer.data)
-
+        
+        #update
         elif request.method == 'PUT':
             editUser_serializer = UserSerializer(user, data=request.data)
             if editUser_serializer.is_valid():
@@ -47,6 +50,7 @@ def getUser_api_view(request, id):
             else: 
                 return Response(editUser_serializer.errors)
         
+        #delete
         elif request.method == 'DELETE':
             user.delete()
             return Response('Eliminado')
