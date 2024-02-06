@@ -7,9 +7,9 @@ class UserSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     # metodos custom para encriptar contraseña cuando se crea y se edita un usuario
-    def create(self, validate_data):
-        user = User(**validate_data)
-        user.set_password(validate_data['password'])
+    def create(self, validated_data):
+        user = User(**validated_data)
+        user.set_password(validated_data['password'])
         user.save()
         return user
     

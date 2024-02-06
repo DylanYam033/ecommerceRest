@@ -1,6 +1,6 @@
 from rest_framework import generics
 from base.api import GeneralListApiView
-from products.api.serializers.main_serializers import *
+from products.api.serializers.general_serializers import *
 
 class MeasureUnitListAPIView(GeneralListApiView):
     serializer_class = MeasureUnitSerializer
